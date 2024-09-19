@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>{{ page_title }}</h1>
+
+<h4>Book {{ book.id }}</h4>
+<h4>Title: {{ book.title }}</h4>
+<h4>Released Year: {{ book.year }}</h4>
+<h4>Posted by: {{ book.posted_by }}</h4>
+<p>Description:{{ book.description }}</p>
+
+<h4>Reviews: </h4>
+{% for review in reviews %}
+    <p><a href="{% url 'review_detail' review.id %}">{{ review.review }}</a></p>
+{% empty %}
+    <p>No reviews yet.</p>
+{% endfor %}
+
+{% if book.posted_by == request.user %}
+
+<h5><a href="{% url 'book_update' book.id %}"> Edit Book</a></h5>
+<h5><a href="{% url 'book_delete' book.id %}"> Delete Book</a></h5>
+
+{% endif %}
+
+<h5><a href="{% url 'review_add' book.id %}"> Add Book Review</a></h5>
+
+{% endblock %}

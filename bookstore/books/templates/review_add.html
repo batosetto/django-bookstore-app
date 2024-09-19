@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ page_title }}</h1>
+<br>
+<form action="{% url 'review_add' book_id}" method="POST">
+    {% csrf_token %}
+    <label>Review Title:</label>
+    {{ form.reviewTitle }}
+    <br>
+    <label>Review:</label>
+    {{ form.review }}
+    <br>
+    <label>Rating:</label>
+    {{ form.rating }}
+    <br>
+    <br>
+    <button type="submit">Add Review</button>
+</form>
+{% endblock %}
+

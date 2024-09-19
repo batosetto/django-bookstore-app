@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>Add Books</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Title:</label>
+        {{ form.title }}
+        <br>
+        <label>Author:</label>
+        {{ form.author }}
+        <br>
+        <label>Year:</label>
+        {{ form.year }}
+        <br>
+        <label>Rating:</label>
+        {{ form.rating }}
+        <br>
+        <label>Description:</label>
+        {{ form.description }}
+        <br>
+        <br>
+        <button type="submit">Add Book</button>
+    </form>
+
+{% endblock %}

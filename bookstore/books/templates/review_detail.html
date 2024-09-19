@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Review Detail</h1>
+<p>{{ review.review }}</p>
+<p>Movie: {{review.movie}}</p>
+<p>Posted by: {{ review.posted_by }}</p>
+
+<a href="{% url 'review_edit' review.id %}">Edit Review</a>
+<a href="{% url 'review_delete' review.id %}">Delete Review</a>
+
+
+{% endblock %}
